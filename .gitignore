@@ -1,0 +1,9 @@
+vendor/
+build/
+composer.lock
+
+*.bak
+*.old
+*~
+*.swp
+.DS_Store

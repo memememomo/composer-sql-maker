@@ -1,0 +1,25 @@
+{
+    "name": "uchiko/sql-maker",
+    "type": "library",
+    "description": "SQL Builder",
+    "keywords": ["sql"],
+    "homepage": "https://github.com/memememomo/SQL-Maker",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "uchiko",
+            "email": "memememomo@gmail.com",
+            "homepage": "https://github.com/memememomo"
+        }
+    ],
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*@stable",
+        "phpunit/php-invoker": ">=1.1.0,<1.2.0",
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "uchiko\\SQL\\" : "src/" }
+    }
+}

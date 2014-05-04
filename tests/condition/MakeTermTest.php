@@ -1,0 +1,57 @@
+<?php
+
+use uchiko\SQL\Maker\Condition;
+
+class MakeTermTest extends PHPUnit_Framework_TestCase {
+
+    public function testMakeTerm() {
+        if (!($fp = fopen("src/uchiko/SQL/Maker/Condition.php", "r"))) {
+            die( "cannot open file");
+        }
+
+        while (!feof($fp)) {
+            $line = fgets($fp);
+            if ( preg_match("/CHEAT SHEET/", $line) ) {
+                break;
+            }
+        }
+
+        while (!feof($fp)) {
+            $line = fgets($fp);
+            if ( preg_match("/IN:(.+)/", $line, $matches) ) {
+                eval("\$in = $matches[1];");
+            }
+
+            if ( preg_match("/OUT QUERY:(.+)/", $line, $matches) ) {
+                eval("\$query = $matches[1];");
+            }
+
+            if ( preg_match("/OUT BIND:(.+)/", $line, $matches) ) {
+                eval("\$bind = $matches[1];");
+                $this->check($in, $query, $bind);
+            }
+        }
+
+        fclose($fp);
+    }
+
+
+    public function check($source, $expected_term, $expected_bind) {
+
+        $cond = new Condition(
+                                        array(
+                                              'quote_char' => '`',
+                                              'name_sep'   => '.',
+                                              )
+                                        );
+
+        $cond->add($source[0], $source[1]);
+        $sql = $cond->asSql();
+        $sql = preg_replace("/^\(/", "", $sql);
+        $sql = preg_replace("/\)$/", "", $sql);
+
+        $this->assertEquals($expected_term, $sql);
+        $this->assertEquals($expected_bind, $cond->bind());
+    }
+
+}

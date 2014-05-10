@@ -327,7 +327,7 @@ class Maker {
     }
 
 
-    public function is_scalar($string) {
+    static public function is_scalar($string) {
         if ( is_object( $string ) ) {
             $class_name = get_class( $string );
             if ( strcmp($class_name, 'uchiko\SQL\Maker\Scalar') === 0 ) {
@@ -341,6 +341,5 @@ class Maker {
             return false;
         }
     }
-
 }
 

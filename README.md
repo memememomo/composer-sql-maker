@@ -12,7 +12,7 @@ SQL::Maker - SQL builder written in perl.
 
 ## create instance
 
-      $builder = new SQL\Maker(array('driver' => 'SQLite'));
+      $builder = new uchiko¥SQL\Maker(array('driver' => 'SQLite'));
 
 
 
@@ -55,8 +55,8 @@ SQL::Maker - SQL builder written in perl.
                    'area'      => array('ish', 'joto'),
                    'base_hp'   => array('<=' => 40),
                    'type'      => array('like' => '%electric%'),
-                   'id'        => SQL_Maker::scalar( array('= (? - 0)', 25) ),
-                   'available' => SQL_Maker::scalar( array('LIKE ? ESCAPE ?', '%mega\\_kick%', '\\') )
+                   'id'        => uchiko\SQL\Maker::scalar( array('= (? - 0)', 25) ),
+                   'available' => uchiko\SQL\Maker::scalar( array('LIKE ? ESCAPE ?', '%mega\\_kick%', '\\') )
                    );
 			   
      list($sql, $binds) = $builder->select($table, $fields, $where);
@@ -127,7 +127,7 @@ SQL::Maker - SQL builder written in perl.
 
 ## method chain
 
-       $sql = new SQL\Maker\Select();
+       $sql = new uchiko\SQL\Maker\Select();
        
        $sql
        　->addSelect('foo')

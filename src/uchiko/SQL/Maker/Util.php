@@ -43,5 +43,19 @@ class Util {
 
     }
 
+    static public function is_scalar($string) {
+        if ( is_object( $string ) ) {
+            $class_name = get_class( $string );
+            if ( strcmp($class_name, 'uchiko\SQL\Maker\Scalar') === 0 ) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
 }
 

@@ -68,7 +68,7 @@ class Condition {
                     return array($term, $v);
                 }
             }
-            else if ( ( strcmp($op, 'IN') === 0 || strcmp($op, 'NOT IN') === 0) && Maker::is_scalar($v) ) {
+            else if ( ( strcmp($op, 'IN') === 0 || strcmp($op, 'NOT IN') === 0) && Util::is_scalar($v) ) {
                 // make_term('foo', array( 'IN' => Maker::scalar(array('SELECT foo FROM bar'))) => foo IN (SELECT foo FROM bar)
                 $values = $v->raw();
                 $term = $this->quote($col) . " $op (" . array_shift($values) . ')';
@@ -82,7 +82,7 @@ class Condition {
                 return array($this->quote($col) . " BETWEEN ? AND ?", $v);
             }
             else {
-                if ( Maker::is_scalar($v) ) {
+                if ( Util::is_scalar($v) ) {
                     // make_term('foo', array('<', array('DATE_SUB(NOW(), INTERVAL 3 DAY)')))
                     return array($this->quote($col) . " $op " . $v->raw(), array());
                 }
@@ -126,7 +126,7 @@ class Condition {
                 return array($term, $val);
             }
         }
-        else if ( Maker::is_scalar($val) ) {
+        else if ( Util::is_scalar($val) ) {
             $v = $val->raw();
 
             if ( is_array($v) ) {

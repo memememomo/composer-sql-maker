@@ -3,6 +3,7 @@
 namespace uchiko\SQL\Maker;
 
 use uchiko\SQL\Maker;
+use uchiko\SQL\Maker\Util;
 use uchiko\SQL\Maker\Condition;
 
 class Select {
@@ -148,7 +149,7 @@ class Select {
             return $label[0];
         }
 
-        if ( Maker::is_scalar($label) ) {
+        if ( Util::is_scalar($label) ) {
             return $label->raw();
         }
 

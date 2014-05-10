@@ -3,13 +3,13 @@
     "type": "library",
     "description": "SQL Builder",
     "keywords": ["sql"],
-    "homepage": "https://github.com/memememomo/SQL-Maker",
+    "homepage": "https://github.com/memememomo/composer-sql-maker",
     "license": "MIT",
     "authors": [
         {
             "name": "uchiko",
             "email": "memememomo@gmail.com",
-            "homepage": "https://github.com/memememomo"
+            "homepage": "https://github.com/memememomo/"
         }
     ],
     "require": {

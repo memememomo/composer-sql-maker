@@ -13,6 +13,7 @@
         }
     ],
     "require": {
+        "uchiko/sql-querymaker": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*@stable",

@@ -3,7 +3,7 @@
 namespace uchiko\SQL\Maker;
 
 class Util {
-    static public function quoteIdentifier($label, $quote_char, $name_sep) {
+    public static function quoteIdentifier($label, $quote_char, $name_sep) {
         if ( is_string($label) && strcmp($label, '*') === 0 ) {
             return $label;
         }
@@ -20,7 +20,7 @@ class Util {
         return implode($name_sep, $new_list);
     }
 
-    static public function is_hash($array) {
+    public static function is_hash($array) {
 
         $i = 0;
         foreach ($array as $k => $dummy) {
@@ -30,7 +30,7 @@ class Util {
 
     }
 
-    static public function to_array($hash) {
+    public static function to_array($hash) {
 
         if ( ! self::is_hash( $hash ) ) { return $hash; }
 
@@ -43,7 +43,7 @@ class Util {
 
     }
 
-    static public function is_scalar($string) {
+    public static function is_scalar($string) {
         if ( is_object( $string ) ) {
             $class_name = get_class( $string );
             if ( strcmp($class_name, 'uchiko\SQL\Maker\Scalar') === 0 ) {

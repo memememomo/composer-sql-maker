@@ -38,12 +38,10 @@ class MakeTermTest extends PHPUnit_Framework_TestCase {
 
     public function check($source, $expected_term, $expected_bind) {
 
-        $cond = new Condition(
-                                        array(
-                                              'quote_char' => '`',
-                                              'name_sep'   => '.',
-                                              )
-                                        );
+        $cond = new Condition(array(
+            'quote_char' => '`',
+            'name_sep'   => '.',
+        ));
 
         $cond->add($source[0], $source[1]);
         $sql = $cond->asSql();

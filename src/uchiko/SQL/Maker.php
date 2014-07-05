@@ -7,6 +7,8 @@ use uchiko\SQL\Maker\Scalar;
 use uchiko\SQL\Maker\Util;
 
 class Maker {
+    const VERSION = '0.01';
+
     public $quote_char, $name_sep, $new_line, $driver, $select_class;
 
     public function __construct($args) {
